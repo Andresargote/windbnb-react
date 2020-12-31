@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 //Importar imagenes y estilos
 import "./styles/Header.css";
@@ -15,7 +15,7 @@ export const Header = () => {
     const locations = [
         {
             location: "All",
-            country: "All",
+            country: "Finland",
         },
         {
             location: "Helsinki",
@@ -35,6 +35,12 @@ export const Header = () => {
         }
     ];
 
+    const [menuButton, setMenuButton] = useState(true);
+
+    const handeMenuButton = () => {
+        setMenuButton(!menuButton);
+    }
+
     return (
         <header>
             <div className="header-container">
@@ -45,16 +51,42 @@ export const Header = () => {
 
                 <div className="header-container-search">
                     <div className="header-container-city">
-                        <span>Helsinki, Finland</span>
+                        <span onClick={handeMenuButton}>Helsinki, Finland</span>
                     </div>
                     <div className="header-container-guest">
-                        Add guests
+                        <span onClick={handeMenuButton}>Add guests</span>
                     </div>
                     <div className="header-container-search-button">
                         <img src={SearchIcon} alt="Search icon"/>
                     </div>
                 </div>
-                
+
+                <nav className="nav" className={(menuButton) ? "nav active" : "nav"}>
+
+                    <div className="nav-header">
+                        <span>Edit your search</span>
+                        <span onClick={handeMenuButton}><img src={DeleteIcon} alt="Delete icon"/></span>
+                    </div>
+
+                    <div className="nav-header-filter">
+                        <div className="nav-header-filter-item">
+                            <span><b>LOCATION</b></span>
+                            <span>Helsinki, Finland</span>
+                        </div>
+                        <div className="nav-header-filter-item">
+                            <span><b>GUESTS</b></span>
+                            <span>Add guests</span>
+                        </div>
+                    </div>
+
+                    <ul className="nav-header-list">
+                        {locations.map(({location, country}) => {
+                            return <li key={location}><span><img src={MarkerIcon} alt="Marke Icon"/></span>{location}, {country}</li>
+                        })}
+                    </ul>
+
+                </nav>
+
             </div>
         </header>
     )
