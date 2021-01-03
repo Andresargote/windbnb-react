@@ -7,8 +7,6 @@ import SearchIcon from "./img/search.svg";
 import SearchButton from "./img/search-button.svg";
 import MarkerIcon from "./img/marker.png";
 import DeleteIcon from "./img/delete.svg";
-import Star from "../components/img/star.png";
-
 
 export const Header = () => { 
 
@@ -82,7 +80,7 @@ export const Header = () => {
                     <div className="nav-header-filter">
                         <div className="nav-header-filter-item">
                             <span><b>LOCATION</b></span>
-                            <span>{(locationState === "") ? "All, Finland" : locationState + ", Finland"}</span>
+                            <span>{(locationState === "") ? "All, Finland" : locationState + ", Finland"}n</span>
                         </div>
                         <div className="nav-header-filter-item">
                             <span><b>GUESTS</b></span>

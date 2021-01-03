@@ -1,0 +1,26 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px 0px;
+}
+
+.main-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: var(--font-montserrat);
+  color: var(--soft-black);
+}
+
+.main-header span {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-montserrat);
+  color: #4f4f4f;
+}
