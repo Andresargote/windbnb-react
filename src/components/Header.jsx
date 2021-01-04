@@ -1,4 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+
+import {DataContext} from "../DataContext";
 
 //Importar imagenes y estilos
 import "./styles/Header.css";
@@ -9,6 +11,8 @@ import MarkerIcon from "./img/marker.png";
 import DeleteIcon from "./img/delete.svg";
 
 export const Header = () => { 
+
+    const {filterData} = useContext(DataContext);
 
     const locations = [
         {
@@ -48,6 +52,11 @@ export const Header = () => {
 
     const handleLocation = (location) => {
         setLocationState(location);
+    }
+
+    const handleFilter = () => {
+        const sumaAdultChildren = adultState + childrenState;
+        filterData(locationState, sumaAdultChildren);
     }
 
     return (
@@ -90,7 +99,10 @@ export const Header = () => {
 
                     <ul className="nav-header-list">
                         {locations.map(({location, country}) => {
-                            return <li key={location} onClick={(() => handleLocation(location))}><span><img src={MarkerIcon} alt="Marke Icon"/></span>{location}, {country}</li>
+                            return <li key={location} onClick={() => {
+                                handleLocation(location)
+                            }
+                            }><span><img src={MarkerIcon} alt="Marke Icon"/></span>{location}, {country}</li>
                         })}
                     </ul>
 
@@ -116,7 +128,10 @@ export const Header = () => {
                         </div>
                     </div>
 
-                    <button className="nav-btn-search">
+                    <button className="nav-btn-search" onClick={() => {
+                            handleFilter();
+                            handleButton();
+                        }}>
                         <span><img src={SearchButton} alt="Search Icon"/></span> Search
                     </button>
 
