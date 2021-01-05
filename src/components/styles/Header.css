@@ -205,3 +205,26 @@ header {
 .active {
   display: none;
 }
+
+/*Media queries*/
+
+@media screen and (min-width: 768px) {
+  .header-logo-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-container .header-container-search {
+    margin: 0px;
+  }
+
+  .header-container .header-container-logo {
+    margin-bottom: 0px;
+  }
+
+  .header-container .header-container-logo img {
+    width: 160px;
+  }
+}

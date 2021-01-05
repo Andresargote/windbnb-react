@@ -5,7 +5,7 @@ import Star from "../components/img/star.png";
 
 export const HouseCards = ({superHost, title, rating, type, beds, photo}) => {
     return (
-        <div className="house-container">
+        <div className="house-container animate__animated animate__fadeIn">
             <img className="house-container-img" src={photo} alt={title}/>
             <div className="house-info">
                 <div className="house-super-apartament-info">

@@ -62,15 +62,15 @@ export const Header = () => {
     return (
         <header>
             <div className="header-container">
+                <div className="header-logo-buttons">
+                    <figure className="header-container-logo">
+                        <img src={LogoSvg} alt="Logo windbnb"/>
+                    </figure>
 
-                <figure className="header-container-logo">
-                    <img src={LogoSvg} alt="Logo windbnb"/>
-                </figure>
-
-                <div className="header-container-search">
-                    <div className="header-container-city">
-                        <span onClick={handleButton}>{(locationState === "") ? "All, Finland" : locationState + ", Finland"}</span>
-                    </div>
+                    <div className="header-container-search">
+                        <div className="header-container-city">
+                            <span onClick={handleButton}>{(locationState === "") ? "All, Finland" : locationState + ", Finland"}</span>
+                        </div>
                     <div className="header-container-guest">
                         <span onClick={handleButton}>{(adultState || childrenState > 0) ? (adultState + childrenState) + " guests" : "Add guests"}</span>
                     </div>
@@ -79,6 +79,7 @@ export const Header = () => {
                     </div>
                 </div>
 
+                </div>
                 <nav className="nav" className={(menuButton) ? "active" : "nav"}>
 
                     <div className="nav-header">
